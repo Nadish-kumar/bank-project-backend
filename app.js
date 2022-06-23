@@ -11,6 +11,7 @@ var usersRouter = require('./routes/users');
 var accountrouter = require("./routes/account")
 var depositrouter  = require("./routes/deposit")
 var withdrawalrouter = require("./routes/withdrawal")
+var transferrouter = require("./routes/transfer")
 
 var app = express();
 const CONNECTION = "mongodb+srv://nadish:nadish@cluster0.llgb9.mongodb.net/?retryWrites=true&w=majority"
@@ -32,6 +33,7 @@ app.use('/users', usersRouter);
 app.use("/account",accountrouter)
 app.use("/deposit" , depositrouter)
 app.use("/with" , withdrawalrouter)
+app.use("/transfer" , transferrouter)
 
 
 // catch 404 and forward to error handler
