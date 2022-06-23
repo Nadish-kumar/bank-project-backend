@@ -34,6 +34,29 @@ router.post("/acc", (req, res) => {
     });
   });
 
+  router.put("/update", (req,res) => {
+    
+     console.log(req.body)
+    accountdetail.findOneAndUpdate({accountnumber : req.body.accountnumber},{balance : req.body.balance},{ new: true }, (err,data) => {
+        if(err) {
+            res.status(500).send(err)
+        }else{
+            res.status(200).send(data)
+        }
+    })
+  })
   
+  router.put("/added", (req,res) => {
+    
+    console.log(req.body)
+   accountdetail.findOneAndUpdate({accountnumber : req.body.accountnumber},{balance : req.body.balance},{ new: true }, (err,data) => {
+       if(err) {
+           res.status(500).send(err)
+       }else{
+           res.status(200).send(data)
+       }
+   })
+ })
+ 
 
 module.exports = router

@@ -1,10 +1,7 @@
 const mongoose  = require("mongoose")
 
-const depositschema = mongoose.Schema({
+const withdrawalschema = mongoose.Schema({
     accountnumber : {
-        type : Number
-    },
-    targetaccount : {
         type : Number
     },
     amount : {
@@ -15,6 +12,6 @@ const depositschema = mongoose.Schema({
     }
 })
 
-const depositref = mongoose.model("deposit" , depositschema)
+const withdrawalref = mongoose.model("withdrawal" , withdrawalschema)
 
-module.exports = depositref
+module.exports = withdrawalref

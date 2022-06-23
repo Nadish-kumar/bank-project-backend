@@ -1,9 +1,9 @@
 const router = require("express").Router()
-const depositdetail  = require("../model/deposit")
+const withdrawaldetail  = require("../model/withdrawal")
 
 router.post("/", async (req, res) => {
    var dbcard = req.body
-    depositdetail.insertMany(dbcard, (err,data) => {
+    withdrawaldetail.insertMany(dbcard, (err,data) => {
     if(err) {
         res.status(500).send(res)
     }else{
@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
 
 router.post("/date", async(req,res) => {
     var dbcard = req.body
-    depositdetail.find(dbcard, (err,data) => {
+    withdrawaldetail.find(dbcard, (err,data) => {
         if(err) {
             res.status(500).send(res)
         }else{
@@ -23,9 +23,8 @@ router.post("/date", async(req,res) => {
     })
 })
 
-router.post("/detail", async(req,res) => {
-      var dbcard = req.body
-    depositdetail.find(dbcard, (err,data) => {
+router.get("/", async(req,res) => {
+    withdrawaldetail.find(dbcard, (err,data) => {
         if(err) {
             res.status(500).send(res)
         }else{
@@ -33,5 +32,4 @@ router.post("/detail", async(req,res) => {
         }
     })
 })
-
 module.exports = router
